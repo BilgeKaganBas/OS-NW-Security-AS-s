@@ -13,6 +13,7 @@ public class PrimeNumber extends JFrame implements ActionListener {
 
     JLabel label1 = new JLabel("Check and find prime number ;");
     JTextField text1 = new JTextField(18);
+    JTextArea area = new JTextArea(20,35);
     JButton button1 = new JButton("Check !");
     JButton button2 = new JButton("Clear");
     
@@ -24,7 +25,7 @@ public class PrimeNumber extends JFrame implements ActionListener {
         
         setTitle("Prime Detection Table");
         setLayout(new FlowLayout());
-        setSize(350,200);
+        setSize(500,350);
         setVisible(true);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,6 +35,9 @@ public class PrimeNumber extends JFrame implements ActionListener {
         add(text1);
         
         add(button1);
+        
+        add(area);
+        
         add(button2);
         
         button1.addActionListener(this);
@@ -48,6 +52,49 @@ public class PrimeNumber extends JFrame implements ActionListener {
     
     public void actionPerformed(ActionEvent PN){
         
+           if (PN.getSource() == button1){
+            
+            String str1 = text1.getText(); //Getting the number for process
+            String str2; //Un-Active String for now
+            
+            int num = Integer.parseInt(str1);
+            
+            int start=0;
+            
+            for(int i=2; i<num; i++)
+            {
+                if(num%i==0)
+                {
+                    start =1;
+                    
+                    area.setText(area.getText()+"\n" + num + " Can divide with "+i);
+                }
+            
+                if(start==0)
+                {
+                    area.setText("\n" + num +" is prime number !!!");
+                }
+                
+                else
+                {
+                    area.setText(area.getText()+"\n \n"+ num +" is not a prime number !!! ");
+                }
+            
+            }
+        
+        } 
+           else if(text1.getText().trim().length()==0)
+            {
+             JOptionPane.showMessageDialog(null,"You should enter any number for check !","Failure", JOptionPane.ERROR_MESSAGE);
+            }
+           
+           else if(PN.getSource()==button2){
+               text1.setText("");
+               area.setText("");
+           }
+        
+        
+            
+        
     }
 }
-
