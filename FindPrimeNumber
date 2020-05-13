@@ -1,1 +1,53 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package prime;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class PrimeNumber extends JFrame implements ActionListener {
+
+    JLabel label1 = new JLabel("Check and find prime number ;");
+    JTextField text1 = new JTextField(18);
+    JButton button1 = new JButton("Check !");
+    JButton button2 = new JButton("Clear");
+    
+    JPanel panel1 = new JPanel();
+    JPanel panel2 = new JPanel();
+    
+    
+    public PrimeNumber(){
+        
+        setTitle("Prime Detection Table");
+        setLayout(new FlowLayout());
+        setSize(350,200);
+        setVisible(true);
+        setResizable(false);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        add(label1);
+        
+        add(text1);
+        
+        add(button1);
+        add(button2);
+        
+        button1.addActionListener(this);
+        button2.addActionListener(this);
+        
+    }
+    public static void main(String[] args) {
+        // TODO code application logic here
+        
+        PrimeNumber PN = new PrimeNumber();
+    }
+    
+    public void actionPerformed(ActionEvent PN){
+        
+    }
+}
 
